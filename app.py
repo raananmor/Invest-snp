@@ -31,7 +31,7 @@ def get_drive_service():
 
 def find_file_in_drive(service, filename):
     results = service.files().list(
-        q=f"name='{filename}' and 'root' in parents and trashed=false",
+        q=f"name='{filename}' and trashed=false",
         spaces='drive',
         fields='files(id, name)').execute()
     files = results.get('files', [])
